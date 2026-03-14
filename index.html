@@ -3,9 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Apology for My Aishu ❤️</title>
+    <style>
+        body {
+            background-color: #ffb6c1;
+            font-family: 'Helvetica', sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            margin: 0;
+            overflow: hidden;
+        }
+        h1 {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #8b0000;
+            font-size: 2.5em;
+        }
+        p {
+            color: #4a0e2e;
+            font-size: 1.2em;
+            font-weight: bold;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .btn-yes {
+            background-color: #ff1493;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            position: absolute; 
+            left: 20%; 
+            bottom: 50px;
+        }
+        .btn-no {
+            background-color: #333333;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            position: absolute;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            left: 60%; 
+            bottom: 50px;
+        }
+        #pleading-text {
+            color: #cc0000;
+            font-size: 1.5em;
+            margin-top: 20px;
+            min-height: 30px;
+        }
+        #celebration {
+            display: none;
+            margin-top: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            height: 400px;
+        }
+    </style>
 </head>
 <body>
+
+    <h1>I'm So Sorry Aishu! 🥺</h1>
     
+    <div class="container" id="main-container">
+        <p>Meri pyari chuzu, kuchu puchu, aur meri sab se sweet Chuzuuuuu,<br><br>
+        Mujhe pata hai mujhse ghalti hui hai aur tum naraz ho.<br>
+        Lekin tumhare bina mera din bilkul acha nahi guzarta.<br>
+        Please mujhe maaf kar do na? 🥺</p>
+        
+        <div id="pleading-text"></div>
+
+        <button class="btn-yes" onclick="maanGayi()">Theek hai, Maan gayi ❤️</button>
+        <button class="btn-no" id="btnNo" onmouseover="bhaagJao()" ontouchstart="bhaagJao()">Nahi, abhi bhi gussa hu 😡</button>
+    </div>
+
+    <div id="celebration">
+        <h2>YAAAY! 🎉</h2>
+        <img src="https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif" alt="Celebration" width="300">
+        <p style="font-size: 1.5em; margin-top: 20px;">Thank you meri Chuzuuuu! ❤️<br>Mera din ban gaya! I promise aage se apka Chomu aisi ghalti nahi karega.<br>I love you Aishu!</p>
+    </div>
+
+    <script>
+        const btnNo = document.getElementById('btnNo');
+        const pleadingText = document.getElementById('pleading-text');
+        const pleads = [
+            "Aise na karo na chuzu 🥺",
+            "Maan jao meri kuchu puchu 😭",
+            "Chuzuu please ek chance dedo! 🙏",
+            "Main rone lag jaunga ab sach mein 😢",
+            "Aishu please thoda sa taras khao apne Naufel par 🥺",
+            "Nahi ka option hi nahi hai madam jii! ❤️",
+            "Tumhari smile ke bina sab bekaar hai 😔",
+            "Acha kan pakar ke sorry! Ab toh maan jao 🥺"
+        ];
+
+        function bhaagJao() {
+            const maxX = window.innerWidth - btnNo.offsetWidth;
+            const maxY = window.innerHeight - btnNo.offsetHeight;
+            
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+            
+            btnNo.style.left = `${x}px`;
+            btnNo.style.top = `${y}px`;
+            btnNo.style.bottom = "auto"; 
+            
+            const randomMessage = pleads[Math.floor(Math.random() * pleads.length)];
+            pleadingText.innerText = randomMessage;
+        }
+
+        function maanGayi() {
+            document.getElementById('main-container').style.display = 'none';
+            document.getElementById('celebration').style.display = 'block';
+        }
+    </script>
+
 </body>
 </html>
