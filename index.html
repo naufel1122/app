@@ -2,107 +2,120 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Apology for My Aishu ❤️</title>
     <style>
-        /* Tkinter jaisa background aur font setup */
         body {
             background-color: #ffb6c1;
             font-family: 'Helvetica', sans-serif;
             text-align: center;
             margin: 0;
-            overflow: hidden; /* Button screen se bahar na jaye */
-            padding-top: 30px;
+            overflow: hidden;
+            padding: 20px 10px;
+            touch-action: manipulation; /* Mobile par double-tap zoom rokne ke liye */
         }
         h1 {
             font-family: 'Comic Sans MS', cursive, sans-serif;
             color: #8b0000;
-            font-size: 28px;
+            font-size: clamp(24px, 6vw, 32px); /* Screen ke hisaab se font size */
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         #initial-msg {
             color: #4a0e2e;
-            font-size: 14px;
+            font-size: clamp(14px, 4vw, 18px);
             font-weight: bold;
             line-height: 1.5;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            padding: 0 10px;
         }
-        /* Tkinter ke 'raised' relief wale buttons */
+        
+        /* Responsive Buttons */
         .btn {
             font-family: 'Helvetica', sans-serif;
-            font-size: 14px;
+            font-size: clamp(12px, 3.5vw, 16px);
             font-weight: bold;
-            width: 200px;
-            padding: 10px;
+            width: 40%; /* Screen ka 40% hissa lega */
+            max-width: 150px;
+            padding: 12px 5px;
             cursor: pointer;
-            border: 4px outset #dddddd; /* Tkinter ka raised effect */
-            border-radius: 4px;
+            border: 3px outset #dddddd;
+            border-radius: 6px;
             position: absolute;
+            z-index: 10;
         }
         #btn-yes {
             background-color: #ff1493;
             color: white;
-            left: 30%;
-            bottom: 15%;
-            transform: translateX(-50%);
+            left: 5%;
+            bottom: 10%;
         }
         #btn-no {
             background-color: #333333;
             color: white;
-            left: 70%;
-            bottom: 15%;
-            transform: translateX(-50%);
-            transition: left 0.1s, top 0.1s; /* Smooth bhagne ke liye */
-        }
-        #pleading-text {
-            color: #cc0000;
-            font-size: 16px;
-            font-weight: bold;
-            height: 30px;
-            margin-top: 20px;
+            right: 5%;
+            bottom: 10%;
+            transition: left 0.1s ease-out, top 0.1s ease-out; /* Smooth movement */
         }
         
-        /* Tkinter ke Toplevel jaisa Pop-up Modal */
+        #pleading-text {
+            color: #cc0000;
+            font-size: clamp(14px, 4.5vw, 18px);
+            font-weight: bold;
+            height: 40px;
+            margin-top: 15px;
+        }
+        
+        /* Responsive Pop-up Modal */
         #modal-overlay {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.6);
             z-index: 1000;
         }
         #popup-window {
             background-color: #ffe4e1;
-            width: 450px;
-            height: 450px;
+            width: 90%; /* Mobile par 90% width lega */
+            max-width: 400px;
+            border: 2px solid #aaa;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            border: 2px solid #aaa;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            border-radius: 8px;
+            overflow: hidden;
+            padding-bottom: 20px;
         }
         .popup-header {
             background-color: #ddd;
             width: 100%;
-            padding: 5px;
+            padding: 8px 10px;
             text-align: left;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: bold;
             border-bottom: 1px solid #aaa;
-            position: absolute;
-            top: 0; left: 0;
             box-sizing: border-box;
+        }
+        .popup-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         #celebration-text {
             color: #4a0e2e;
-            font-size: 14px;
+            font-size: clamp(14px, 4vw, 16px);
             font-weight: bold;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 15px;
+        }
+        /* Mobile par GIF ka size theek karne ke liye */
+        .celebration-gif {
+            width: 80%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -125,11 +138,13 @@
     <div id="modal-overlay">
         <div id="popup-window">
             <div class="popup-header">CELEBRATION! 🎉</div>
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnJmNnR3OHBuNjRuOXhzNXMxd2lweDlnbGZhbjhuYzVmbnNxbXUyZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/s6fnVyWTfM2nUKuMVY/giphy.gif" alt="Celebration GIF" width="250" style="margin-top: 30px;">
-            <div id="celebration-text">
-                Thank you meri Chuzuuuu! ❤️<br>
-                Mera din ban gaya! I promise aage se apka Chomu aisi ghalti nahi karega.<br>
-                I love you Aishu!
+            <div class="popup-content">
+                <img src="https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif" alt="Celebration GIF" class="celebration-gif">
+                <div id="celebration-text">
+                    Thank you meri Chuzuuuu! ❤️<br>
+                    Mera din ban gaya! I promise aage se apka Chomu aisi ghalti nahi karega.<br>
+                    I love you Aishu!
+                </div>
             </div>
         </div>
     </div>
@@ -150,38 +165,38 @@
         ];
 
         function bhaagJao() {
-            // Button width/height
+            // Button ka actual size get karna
             const btnWidth = btnNo.offsetWidth;
             const btnHeight = btnNo.offsetHeight;
             
-            // Screen boundaries
-            let maxX = window.innerWidth - btnWidth - 20;
-            let maxY = window.innerHeight - btnHeight - 20;
+            // Screen boundaries calculations (Button screen se bahar na jaye)
+            let maxX = window.innerWidth - btnWidth - 10;
+            let maxY = window.innerHeight - btnHeight - 10;
             
-            if(maxX <= 0) maxX = 50;
-            if(maxY <= 0) maxY = 50;
+            // Negative values se bachne ke liye safe limit
+            maxX = Math.max(10, maxX);
+            maxY = Math.max(50, maxY);
             
-            // Random positions
-            const newX = Math.floor(Math.random() * maxX) + 10;
-            const newY = Math.floor(Math.random() * (maxY - 100)) + 100; // Top se thoda neechay
+            // Random new positions
+            const newX = Math.floor(Math.random() * maxX);
+            const newY = Math.floor(Math.random() * (maxY - 80)) + 60; // Top se thoda neechay rakhega
             
-            // Move button (Remove transforms so it moves exactly to x,y)
-            btnNo.style.transform = "none";
+            // Position update karna
+            btnNo.style.right = "auto"; // Default right clear kar rahe hain
             btnNo.style.left = newX + "px";
             btnNo.style.top = newY + "px";
             btnNo.style.bottom = "auto";
             
-            // Random message update
+            // Random emotional message
             pleadingText.innerText = pleads[Math.floor(Math.random() * pleads.length)];
         }
 
         function maanGayi() {
-            // Tkinter ka Toplevel show karna
             document.getElementById('modal-overlay').style.display = 'block';
             
-            // Tkinter ki tarah 5 seconds (5000ms) baad sab close karna (blank screen dikhana)
+            // 5 second baad app auto-close
             setTimeout(() => {
-                document.body.innerHTML = "<h2 style='color:#4a0e2e; margin-top:50px;'>App closed. Love you! ❤️</h2>";
+                document.body.innerHTML = "<div style='display:flex; justify-content:center; align-items:center; height:100vh;'><h2 style='color:#4a0e2e; text-align:center; padding:20px;'>App closed. Love you! ❤️</h2></div>";
             }, 5000);
         }
     </script>
