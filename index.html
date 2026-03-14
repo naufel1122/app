@@ -3,9 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>I am Sorry Aishu!</title>
+    <style>
+        body {
+            background-color: #ffe6e6;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            color: #ff4d4d;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: inline-block;
+            max-width: 500px;
+            margin: 0 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #444;
+        }
+        .btn {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #cc0000;
+        }
+        #hiddenMessage {
+            display: none;
+            font-size: 1.5em;
+            color: #cc0000;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    
+
+    <div class="container">
+        <h1>I'm So Sorry, Aishu! 🥺</h1>
+        <p>Meri pyari chuzu, kuchu puchu, aur sab se sweet Cheekkoo... mujhse ghalti ho gayi. Tum naraz hoti ho toh mera din bilkul acha nahi guzarta.</p>
+        <p>Please mujhe maaf kar do. I promise aage se aisi bewakoofi nahi karunga!</p>
+        
+        <button class="btn" onclick="showLove()">Maaf kiya?</button>
+        
+        <p id="hiddenMessage">Yay! Thank you! I love you! ❤️</p>
+    </div>
+
+    <script>
+        function showLove() {
+            document.getElementById('hiddenMessage').style.display = 'block';
+        }
+    </script>
+
 </body>
 </html>
